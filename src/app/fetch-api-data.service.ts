@@ -74,7 +74,7 @@ export class GetAllMovies {
   }
 // Non-typed response extraction
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Object): any {
     const body = res;
     return body || {};
   }
@@ -108,7 +108,7 @@ export class GetOneMovie {
       catchError(this.handleError)
     );
   }
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Object): any {
     const body = res;
     return body || {};
   }
@@ -140,7 +140,7 @@ export class GetDirector{
       );
     }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Object): any {
     const body = res;
     return body || {};
   }
@@ -172,7 +172,7 @@ export class GetGener{
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Object): any {
     const body = res;
     return body || {};
   }
@@ -206,7 +206,7 @@ export class GetUser{
       );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Object): any {
     const body = res;
     return body || {};
   }
@@ -238,7 +238,7 @@ export class UpdateUsersInfo{
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Object): any {
     const body = res;
     return body || {};
   }
@@ -257,7 +257,7 @@ export class UpdateUsersInfo{
 }
 export class DeleteUser{
     constructor(private http: HttpClient) {}
-  // API DELETE user from system 
+  // API DELETE user from system
   deleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.delete(apiUrl + 'users' + ':Username', {headers: new HttpHeaders(
@@ -270,7 +270,7 @@ export class DeleteUser{
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Object): any {
     const body = res;
     return body || {};
   }
@@ -303,7 +303,7 @@ export class AddMovie{
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Object): any {
     const body = res;
     return body || {};
   }
@@ -336,7 +336,7 @@ export class DeleteMovie{
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Object): any {
     const body = res;
     return body || {};
   }
