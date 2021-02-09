@@ -15,14 +15,14 @@ describe('FetchApiDataService', () => {
     expect(service).toBeTruthy();
   });
 
-  let logInService: UserLoginFormComponent;
+  let loginService: UserLoginFormComponent;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    logInService = TestBed.inject(UserLoginFormComponent);
+    loginService = TestBed.inject(UserLoginFormComponent);
   });
 
   it('should be good to go', () => {
-    expect(logInService).toBeTruthy();
+    expect(loginService).toBeTruthy();
   });
 });

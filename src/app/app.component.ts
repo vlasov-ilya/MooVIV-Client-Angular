@@ -20,7 +20,7 @@ export class AppComponent {
     });
   }
 // This is function that will open the dialog when logIN button is clicked
-  openLogInDialog(): void {
+  openLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent , {
       width: '280px'
     });

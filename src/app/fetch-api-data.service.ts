@@ -43,6 +43,7 @@ export class UserLoginService {
     .post(apiUrl + 'login', userDetails)
     .pipe(catchError(this.handleError));
   }
+
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
       console.error('Some error occurred: ', error.error.message);
