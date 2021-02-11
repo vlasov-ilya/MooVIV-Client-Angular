@@ -12,8 +12,8 @@ export class MovieGenreComponent{
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
-      title: string;
-      description: string;
+      Name: string;
+      Description: string;
     }
   ) { }
 

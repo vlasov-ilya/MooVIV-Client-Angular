@@ -10,10 +10,10 @@ export class MovieDirectorComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
-      name: string;
-      bio: string;
-      birth: string;
-      death: string;
+      Name: string;
+      Bio: string;
+      Birth: string;
+      Death: string;
     }
   ) {}
 }
