@@ -20,7 +20,7 @@ export class UserLoginFormComponent implements OnInit {
       public fetchApiData: UserLoginService,
       public dialogRef: MatDialogRef<UserLoginFormComponent>,
       public snackBar: MatSnackBar,
-      public router: Router
+      private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -29,7 +29,7 @@ export class UserLoginFormComponent implements OnInit {
    // This is function responsible for sending the form inputes to the backend
     loginUser(): void {
       this.fetchApiData.userLogin(this.userData).subscribe((result) => {
-      this.router.navigate(['movies']);      // successful user login
+            // successful user login
       this.dialogRef.close(); // This will close the modal on success!
       console.log(result);
       localStorage.setItem('user', result.user.Username);
@@ -37,6 +37,7 @@ export class UserLoginFormComponent implements OnInit {
       this.snackBar.open('user loged-in!', 'OK', {
         duration: 2000
       });
+      this.router.navigate(['movies']);
     }, (result) => {
       console.log(result);
       this.snackBar.open(result, 'OK', {
