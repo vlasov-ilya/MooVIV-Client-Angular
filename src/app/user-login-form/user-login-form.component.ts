@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UserLoginService } from '../fetch-api-data.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -17,7 +19,8 @@ export class UserLoginFormComponent implements OnInit {
     constructor(
       public fetchApiData: UserLoginService,
       public dialogRef: MatDialogRef<UserLoginFormComponent>,
-      public snackBar: MatSnackBar
+      public snackBar: MatSnackBar,
+      public router: Router
     ) {}
 
     ngOnInit(): void {
@@ -26,7 +29,7 @@ export class UserLoginFormComponent implements OnInit {
    // This is function responsible for sending the form inputes to the backend
     loginUser(): void {
       this.fetchApiData.userLogin(this.userData).subscribe((result) => {
-              // successful user login
+      this.router.navigate(['movies']);      // successful user login
       this.dialogRef.close(); // This will close the modal on success!
       console.log(result);
       localStorage.setItem('user', result.user.Username);
