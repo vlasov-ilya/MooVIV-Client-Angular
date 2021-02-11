@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MovieDirectorComponent } from './movie-director/movie-director.component';
+import { MovieGenreComponent } from './movie-genre/movie-genre.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     UserLoginFormComponent,
     MovieCardComponent,
     WelcomePageComponent,
-    MovieDirectorComponent
+    MovieDirectorComponent,
+    MovieGenreComponent
 
   ],
   imports: [

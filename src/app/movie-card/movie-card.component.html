@@ -2,5 +2,7 @@
   <mat-dialog-content>
     <mat-card-title>{{movie.Title}}</mat-card-title>
     <mat-card-subtitle><img src={{movie.ImagePath}} /></mat-card-subtitle>
+    <button mat-reised-button (click)="director()" >About Director</button>
+    <button mat-reised-button (click)="gener()" >About Genre</button>
   </mat-dialog-content>
 </mat-card>
