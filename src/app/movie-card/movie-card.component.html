@@ -1,13 +1,18 @@
-<mat-card *ngFor="let movie of movies; let i=index;">
-  <mat-dialog-content>
-    <mat-card-title>{{movie.Title}}</mat-card-title>
-
-    <mat-card-subtitle>
-      <h4>Directed by: {{movie.Director.Name}}</h4>
-      <h4>Genre: {{movie.Genre.Name}}</h4>
-      <img src={{movie.ImagePath}} />
-    </mat-card-subtitle>
-    <!-- <button mat-reised-button (click)="director()">About Director</button> -->
-    <!-- <button mat-reised-button (click)="gener()">About Genre</button> -->
-  </mat-dialog-content>
-</mat-card>
+<div style="display: flex;" class="container">
+  <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
+    <mat-card-header>
+      <mat-card-title>{{movie.Title}}</mat-card-title>
+      <mat-card-subtitle>
+        <h4>Directed by: {{movie.Director.Name}}</h4>
+        <h6>Genre: {{movie.Gener.Name}}</h6>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img src={{movie.ImagePath}} alt={{movie.Title}} />
+    <mat-card-actions>
+      <button mat-button color="primary">Gener</button>
+      <button mat-button color="primary">Director</button>
+      <button mat-button color="primary">Synopsis</button>
+      <mat-icon>favorite_border</mat-icon>
+    </mat-card-actions>
+  </mat-card>
+</div>

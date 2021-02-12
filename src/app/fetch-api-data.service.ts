@@ -173,7 +173,7 @@ export class GetGener {
   // API to get genre by Name
   getGenre(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'movies' + 'Genres' + ':Title', {
+    return this.http.get(apiUrl + 'movies' + 'genres' + ':title', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -209,7 +209,7 @@ export class GetUser {
   // API to get user by Name
   getUser(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'users' + ':Username', {
+    return this.http.get(apiUrl + 'users' + ':username', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -243,7 +243,7 @@ export class UpdateUsersInfo {
   // API update users info
   updateUsersInfo(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.put(apiUrl + 'users' + ':Username', {
+    return this.http.put(apiUrl + 'users' + ':username', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -277,7 +277,7 @@ export class DeleteUser {
   // API DELETE user from system
   deleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users' + ':Username', {
+    return this.http.delete(apiUrl + 'users' + ':username', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -312,7 +312,7 @@ export class AddMovie {
 
   addMovie(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.post(apiUrl + 'users' + ':Username' + 'Movies' + ':MovieID', {
+    return this.http.post(apiUrl + 'users' + ':username' + 'movies' + ':movieid', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -347,7 +347,7 @@ export class DeleteMovie {
   // API to DELETE a movie from favorites
   deleteMovie(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users' + ':Username' + 'Favorites' + ':MovieID', {
+    return this.http.delete(apiUrl + 'users' + ':username' + 'favorites' + 'movieid', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
