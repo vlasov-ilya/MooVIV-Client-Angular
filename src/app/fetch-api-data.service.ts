@@ -72,7 +72,7 @@ export class GetAllMovies {
       .get(apiUrl + 'movies', {
         headers: new HttpHeaders(
           {
-            Authorization: 'Bearer' + token,
+            Authorization: 'Bearer ' + token,
           }
         ),
       }).pipe(
@@ -109,7 +109,7 @@ export class GetOneMovie {
       .get(apiUrl + 'movies' + ':Title', {
         headers: new HttpHeaders(
           {
-            Authorization: 'Bearer' + token,
+            Authorization: 'Bearer ' + token,
           }
         ),
       }).pipe(
@@ -142,7 +142,7 @@ export class GetDirector {
     return this.http.get(apiUrl + 'movies' + 'director' + ':Name', {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }
       )
     }).pipe(
@@ -176,7 +176,7 @@ export class GetGener {
     return this.http.get(apiUrl + 'movies' + 'Genres' + ':Title', {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }
       )
     }).pipe(
@@ -212,7 +212,7 @@ export class GetUser {
     return this.http.get(apiUrl + 'users' + ':Username', {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }
       )
     }).pipe(
@@ -246,7 +246,7 @@ export class UpdateUsersInfo {
     return this.http.put(apiUrl + 'users' + ':Username', {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }
       )
     }).pipe(
@@ -280,7 +280,7 @@ export class DeleteUser {
     return this.http.delete(apiUrl + 'users' + ':Username', {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }
       )
     }).pipe(
@@ -315,7 +315,7 @@ export class AddMovie {
     return this.http.post(apiUrl + 'users' + ':Username' + 'Movies' + ':MovieID', {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }
       )
     }).pipe(
@@ -350,7 +350,7 @@ export class DeleteMovie {
     return this.http.delete(apiUrl + 'users' + ':Username' + 'Favorites' + ':MovieID', {
       headers: new HttpHeaders(
         {
-          Authorization: 'Bearer' + token,
+          Authorization: 'Bearer ' + token,
         }
       )
     }).pipe(
