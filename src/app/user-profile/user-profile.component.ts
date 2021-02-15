@@ -21,7 +21,7 @@ import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.compone
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  @Input() userData = { username: '', password: '', email: '', birthday: ''};
+  @Input() userData = { username: '', password: '', email: '', birthday: '' };
 
   movies: any[] = [];
   favotiteMovies: any[] = [];
@@ -47,7 +47,7 @@ export class UserProfileComponent implements OnInit {
     const user = localStorage.getItem('user');
     console.log(user);
 
-    this.fetchApiDataUser.getUser(user).subscribe((resp: any) => {
+    this.fetchApiDataUser.getUser().subscribe((resp: any) => {
       this.favotiteMoviesIds = resp.FavotiteMovies;
       console.log(this.favotiteMoviesIds);
       return this.favotiteMovies;
@@ -78,22 +78,22 @@ export class UserProfileComponent implements OnInit {
   }
 
   updateUsersInfo(): void {
-    this.fetchApiData.updateUsersInfo(this.userData).subscribe((result) => {
+    this.fetchApiData.updateUsersInfo().subscribe((result) => {
       console.log(result);
       this.snackBar.open('You profile was updated', 'OK', {
         duration: 3000,
         verticalPosition: 'top'
       });
     },
-    (result) => {
-      console.log(result);
-      this.snackBar.open(result, 'OK', {
-        duration: 5000
+      (result) => {
+        console.log(result);
+        this.snackBar.open(result, 'OK', {
+          duration: 5000
+        });
       });
-    });
   }
 
-  openSynopsisDialog( Description: string, Image: string): void {
+  openSynopsisDialog(Description: string, Image: string): void {
     this.dialog.open(MovieSynopsisComponent, {
       data: { Description, Image },
       width: '550px',
@@ -101,17 +101,17 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  openGenreDialog( Name: string, Description: string): void {
-    this.dialog.open( MovieGenerComponent, {
-      data: { Name, Description},
+  openGenreDialog(Name: string, Description: string): void {
+    this.dialog.open(MovieGenerComponent, {
+      data: { Name, Description },
       width: '550px',
       height: '600px'
     });
   }
 
-  openDirectorDialog( Name: string, Bio: string,Birth: string, Death: string): void {
-    this.dialog.open( MovieDirectorComponent, {
-      data: {Name, Bio, Birth, Death},
+  openDirectorDialog(Name: string, Bio: string, Birth: string, Death: string): void {
+    this.dialog.open(MovieDirectorComponent, {
+      data: { Name, Bio, Birth, Death },
       width: '550px',
       height: '600px'
     });

@@ -36,7 +36,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   addMovie(MovieID: string, title: string): void {
-    this.fetchApiData2.addMovie(MovieID).subscribe((resp: any) => {
+    this.fetchApiData2.addMovie().subscribe((resp: any) => {
       console.log(resp);
       this.snackBar.open(
         `"${title}" added to your favotites`,

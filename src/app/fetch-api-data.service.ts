@@ -310,9 +310,9 @@ export class AddMovie {
   constructor(private http: HttpClient) { }
   // API to ADD a movi to favorites
 
-  addMovie(MovieID): Observable<any> {
+  addMovie(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.post(apiUrl + 'users' + ':username' + 'movies' + `${MovieID}`, {
+    return this.http.post(apiUrl + 'users' + ':username' + 'movies' + 'MovieID', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
