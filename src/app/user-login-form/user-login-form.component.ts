@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserLoginService } from '../fetch-api-data.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { UserLoginService } from '../fetch-api-data.service';
 
 
 
@@ -34,7 +34,7 @@ export class UserLoginFormComponent implements OnInit {
       console.log(result);
       localStorage.setItem('user', result.user.Username);
       localStorage.setItem('token', result.token);
-      this.snackBar.open('user loged-in!', 'OK', {
+      this.snackBar.open('user logged in!', 'OK', {
         duration: 2000
       });
       this.router.navigate(['movies']);

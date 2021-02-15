@@ -170,7 +170,7 @@ export class GetDirector {
 }
 export class GetGener {
   constructor(private http: HttpClient) { }
-  // API to get genre by Name
+  // API to get genre by Title
   getGenre(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies' + 'genres' + ':title', {
@@ -310,9 +310,44 @@ export class AddMovie {
   constructor(private http: HttpClient) { }
   // API to ADD a movi to favorites
 
-  addMovie(): Observable<any> {
+  addMovie(MovieID): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.post(apiUrl + 'users' + ':username' + 'movies' + ':movieid', {
+    return this.http.post(apiUrl + 'users' + ':username' + 'movies' + `${MovieID}`, {
+      headers: new HttpHeaders(
+        {
+          Authorization: 'Bearer ' + token,
+        }
+      )
+    }).pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+
+  private extractResponseData(res: Object): any {
+    const body = res;
+    return body || {};
+  }
+
+  private handleError(error: HttpErrorResponse): any {
+    if (error.error instanceof ErrorEvent) {
+      console.error('Some error occurred: ', error.error.message);
+    } else {
+      console.error(
+        `Error Statuse code ${error.status}, ` +
+        `Error body is: ${error.error}`);
+    }
+    return throwError(
+      'Something happened; please try again later.');
+  }
+}
+
+export class GetFavoriteMovies {
+  constructor(private http: HttpClient) { }
+  // API to Get all favorite movies for user
+  getFavotiteMovies(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(apiUrl + 'users' + ':username' + 'favorites' + 'movieid', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,

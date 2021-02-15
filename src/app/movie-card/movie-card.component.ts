@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { GetAllMovies, AddMovie } from '../fetch-api-data.service';
+import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { GetAllMovies, AddMovie } from '../fetch-api-data.service';
 import { MovieDirectorComponent } from '../movie-director/movie-director.component';
-import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
+import { MovieGenerComponent } from '../movie-genre/movie-genre.component';
 import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.component';
-import { stringify } from '@angular/compiler/src/util';
+
 
 @Component({
   selector: 'app-movie-card',
@@ -17,7 +19,8 @@ export class MovieCardComponent implements OnInit {
   constructor(
     public fetchApiData: GetAllMovies,
     public fetchApiData2: AddMovie,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -32,9 +35,17 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  addMovie(): void {
-    this.fetchApiData2.addMovie().subscribe((resp: any) => {
+  addMovie(MovieID: string, title: string): void {
+    this.fetchApiData2.addMovie(MovieID).subscribe((resp: any) => {
       console.log(resp);
+      this.snackBar.open(
+        `"${title}" added to your favotites`,
+        'OK',
+        {
+          duration: 2000,
+          verticalPosition: 'top'
+        }
+      );
     });
   }
 
@@ -47,7 +58,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   openGenreDialog(Name: string, Description: string): void {
-    this.dialog.open(MovieGenreComponent, {
+    this.dialog.open(MovieGenerComponent, {
       data: { Name, Description },
       width: '550px',
       height: '500px',
