@@ -11,7 +11,7 @@ import {
   DeleteMovie
 } from '../fetch-api-data.service';
 import { MovieDirectorComponent } from '../movie-director/movie-director.component';
-import { MovieGenerComponent } from '../movie-genre/movie-genre.component';
+import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
 import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.component';
 
 
@@ -21,11 +21,11 @@ import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.compone
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  @Input() userData = { username: '', password: '', email: '', birthday: '' };
+  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
   movies: any[] = [];
   favotiteMovies: any[] = [];
-  favotiteMoviesIds: any[] = [];
+  favotiteMoviesIDs: any[] = [];
 
   constructor(
     public fetchApiData: UpdateUsersInfo,
@@ -47,9 +47,9 @@ export class UserProfileComponent implements OnInit {
     const user = localStorage.getItem('user');
     console.log(user);
 
-    this.fetchApiDataUser.getUser().subscribe((resp: any) => {
-      this.favotiteMoviesIds = resp.FavotiteMovies;
-      console.log(this.favotiteMoviesIds);
+    this.fetchApiDataUser.getUser(user).subscribe((resp: any) => {
+      this.favotiteMoviesIDs = resp.FavotiteMovies;
+      console.log(this.favotiteMoviesIDs);
       return this.favotiteMovies;
     });
     setTimeout(() => {
@@ -62,23 +62,23 @@ export class UserProfileComponent implements OnInit {
       this.movies = resp;
       console.log(this.movies);
       this.movies.forEach((movie) => {
-        if (this.favotiteMoviesIds.includes(movie._id))
+        if (this.favotiteMoviesIDs.includes(movie._id))
           this.favotiteMovies.push(movie);
-      });
+        });
       console.log(this.favotiteMovies);
       return this.favotiteMovies;
     });
   }
 
-  deleteFavoriteMovie(): void {
-    this.fetchApiDataDeleteMovie.deleteMovie().subscribe((resp: any) => {
+  deleteFavoriteMovie(id: string, title: string): void {
+    this.fetchApiDataDeleteMovie.deleteMovie(id).subscribe((resp: any) => {
       console.log(resp);
       window.location.reload();
     });
   }
 
   updateUsersInfo(): void {
-    this.fetchApiData.updateUsersInfo().subscribe((result) => {
+    this.fetchApiData.updateUsersInfo(this.userData).subscribe((result) => {
       console.log(result);
       this.snackBar.open('You profile was updated', 'OK', {
         duration: 3000,
@@ -102,7 +102,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   openGenreDialog(Name: string, Description: string): void {
-    this.dialog.open(MovieGenerComponent, {
+    this.dialog.open(MovieGenreComponent, {
       data: { Name, Description },
       width: '550px',
       height: '600px'

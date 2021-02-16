@@ -7,7 +7,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
   templateUrl: './movie-genre.component.html',
   styleUrls: ['./movie-genre.component.scss']
 })
-export class MovieGenerComponent{
+export class MovieGenreComponent{
 
   constructor(
     @Inject(MAT_DIALOG_DATA)

@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GetAllMovies, AddMovie } from '../fetch-api-data.service';
 import { MovieDirectorComponent } from '../movie-director/movie-director.component';
-import { MovieGenerComponent } from '../movie-genre/movie-genre.component';
+import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
 import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.component';
 
 
@@ -35,11 +35,11 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  addMovie(MovieID: string, title: string): void {
-    this.fetchApiData2.addMovie().subscribe((resp: any) => {
+  addMovie(id: string, Title: string): void {
+    this.fetchApiData2.addMovie(id).subscribe((resp: any) => {
       console.log(resp);
       this.snackBar.open(
-        `"${title}" added to your favotites`,
+        `"${Title}" added to your favotites`,
         'OK',
         {
           duration: 2000,
@@ -58,7 +58,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   openGenreDialog(Name: string, Description: string): void {
-    this.dialog.open(MovieGenerComponent, {
+    this.dialog.open(MovieGenreComponent, {
       data: { Name, Description },
       width: '550px',
       height: '500px',
