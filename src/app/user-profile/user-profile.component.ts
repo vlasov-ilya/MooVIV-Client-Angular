@@ -47,10 +47,10 @@ export class UserProfileComponent implements OnInit {
     const user = localStorage.getItem('user');
     console.log(user);
 
-    this.fetchApiDataUser.getUser(user).subscribe((resp: any) => {
+    this.fetchApiDataUser.getUser().subscribe((resp: any) => {
       this.favotiteMoviesIDs = resp.FavotiteMovies;
       console.log(this.favotiteMoviesIDs);
-      return this.favotiteMovies;
+      return this.favotiteMoviesIDs;
     });
     setTimeout(() => {
       this.getMovies();
@@ -62,9 +62,9 @@ export class UserProfileComponent implements OnInit {
       this.movies = resp;
       console.log(this.movies);
       this.movies.forEach((movie) => {
-        if (this.favotiteMoviesIDs.includes(movie._id))
-          this.favotiteMovies.push(movie);
-        });
+        // if (this.favotiteMoviesIDs.includes(movie._id))
+        //   this.favotiteMovies.push(movie);
+      });
       console.log(this.favotiteMovies);
       return this.favotiteMovies;
     });
@@ -93,25 +93,25 @@ export class UserProfileComponent implements OnInit {
       });
   }
 
-  openSynopsisDialog(Description: string, Image: string): void {
+  openSynopsisDialog(description: string, image: string): void {
     this.dialog.open(MovieSynopsisComponent, {
-      data: { Description, Image },
+      data: { description, image },
       width: '550px',
       height: '600px',
     });
   }
 
-  openGenreDialog(Name: string, Description: string): void {
+  openGenreDialog(name: string, description: string): void {
     this.dialog.open(MovieGenreComponent, {
-      data: { Name, Description },
+      data: { name, description },
       width: '550px',
       height: '600px'
     });
   }
 
-  openDirectorDialog(Name: string, Bio: string, Birth: string, Death: string): void {
+  openDirectorDialog(name: string, bio: string, birth: string, death: string): void {
     this.dialog.open(MovieDirectorComponent, {
-      data: { Name, Bio, Birth, Death },
+      data: { name, bio, birth, death },
       width: '550px',
       height: '600px'
     });

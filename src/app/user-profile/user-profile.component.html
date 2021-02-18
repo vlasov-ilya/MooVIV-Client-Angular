@@ -25,18 +25,18 @@
         </mat-form-field>
       </form>
     </mat-card-content>
-    <mat-card-action>
-      <button mat-raised-button (click)="updateUserInfo()" class="update_button">
+    <mat-card-actions>
+      <button mat-raised-button (click)="updateUsersInfo()" class="update_button">
         Submit
       </button>
-    </mat-card-action>
+    </mat-card-actions>
   </mat-card>
   <h1>Your Favorite Movies</h1>
-  <div *ngIf="this.favoriteMovies.length === 0">
+  <div *ngIf="this.getFavotiteMovies.length === 0">
     <h3>You haven't add any movie to your favorites yet!</h3>
   </div>
   <div>
-    <mat-card *ngFor="let movie of favoriteMovies; let i = index">
+    <mat-card *ngFor="let movie of favotiteMovies; let i = index">
       <mat-icon (click)="deleteFavoriteMovie(movie._id, movie.Title)">
         remove
       </mat-icon>
@@ -46,7 +46,7 @@
       </mat-card-header>
       <img src="{{ movie.ImagePath }}" alt="{{ movie.Title }}" />
       <div>
-        <button mat-raised-button (click)="openSynopsisDialog(movie.Description, movie.ImagePath)">
+        <button mat-raised-button (click)="openSynopsisDialog(movie.Dscription, movie.ImagePath)">
           Synopsis
         </button>
         <button mat-raised-button (click)="openGenreDialog(movie.Genre.Title, movie.Genre.Description)">

@@ -222,9 +222,9 @@ export class GetGenre {
 export class GetUser {
   constructor(private http: HttpClient) { }
   // API to get user by Name
-  getUser(username: string): Observable<any> {
+  getUser(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + `users/${username}`, {
+    return this.http.get(apiUrl + 'users/:username', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -259,10 +259,10 @@ export class GetUser {
 export class UpdateUsersInfo {
   constructor(private http: HttpClient) { }
   // API update users info
-  updateUsersInfo(userData): Observable<any> {
+  updateUsersInfo(userDetails: any): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.put(apiUrl + `users/${username}`, userData, {
+    return this.http.put(apiUrl + 'users/:username', userDetails, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -299,8 +299,7 @@ export class DeleteUser {
   // API DELETE user from system
   deleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
-    const username = localStorage.getItem('user');
-    return this.http.delete(apiUrl + `users/${username}`, {
+    return this.http.delete(apiUrl + 'users/:username', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -339,7 +338,7 @@ export class AddMovie {
   addMovie(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.post(apiUrl + `users/${username}/Movies/${id}`, {
+    return this.http.post(apiUrl + `users/${username}/Movies/${id}`, id, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -377,8 +376,7 @@ export class GetFavoriteMovies {
   // API to Get all favorite movies for user
   getFavotiteMovies(): Observable<any> {
     const token = localStorage.getItem('token');
-    const username = localStorage.getItem('user');
-    return this.http.get(apiUrl + `users/${username}/Favorites`, {
+    return this.http.get(apiUrl + 'users/:username/Favorites', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -414,10 +412,10 @@ export class GetFavoriteMovies {
 export class DeleteMovie {
   constructor(private http: HttpClient) { }
   // API to DELETE a movie from favorites
-  deleteMovie(id): Observable<any> {
+  deleteMovie(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.delete(apiUrl + `users/${username}/Favorites/${id}`, {
+    return this.http.delete(apiUrl + 'users/:username/Favorites/:MovieID', {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
