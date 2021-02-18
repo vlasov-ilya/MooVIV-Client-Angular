@@ -65,7 +65,7 @@ export class UserLoginService {
 })
 export class GetAllMovies {
   constructor(private http: HttpClient) { }
-  // Making API to get All Movies
+    // Making API to get All Movies
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
