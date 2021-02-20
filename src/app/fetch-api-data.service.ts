@@ -223,10 +223,10 @@ export class GetGenre {
 export class GetUser {
   constructor(private http: HttpClient) { }
   // API to get user by Name
-  getUser(username: string): Observable<any> {
+  getUser(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + `users/${username}`, {
+      .get(apiUrl + 'users/:username', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),

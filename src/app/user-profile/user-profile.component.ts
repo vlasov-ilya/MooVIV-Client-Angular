@@ -46,7 +46,7 @@ export class UserProfileComponent implements OnInit {
     const user = localStorage.getItem('user');
     console.log(user);
 
-    this.fetchApiDataUser.getUser(user).subscribe((resp: any) => {
+    this.fetchApiDataUser.getUser().subscribe((resp: any) => {
       this.favoriteMoviesIDs = resp.FavoriteMovies;
       console.log(this.favoriteMoviesIDs);
       return this.favoriteMoviesIDs;
