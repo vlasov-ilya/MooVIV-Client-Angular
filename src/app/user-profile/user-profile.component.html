@@ -6,23 +6,21 @@
     </mat-card-header>
     <mat-card-content>
       <form>
+
         <mat-form-field>
           <mat-hint>Must be at least 5 characters</mat-hint>
-          <input matInput class="input" [(ngModel)]="userData.Username" placeholder="Username" type="text"
-            name="Username" required />
+          <input matInput class="input" [(ngModel)]="userData.Username" placeholder="Username" type="text" name="Username" required>
         </mat-form-field>
         <mat-form-field>
           <mat-hint>Must be at least 5 characters</mat-hint>
-          <input matInput class="input" [(ngModel)]="userData.Password" placeholder="Password" type="password"
-            name="Password" required />
+          <input matInput [(ngModel)]="userData.Password" placeholder="Password" type="password" name="Password" required>
         </mat-form-field>
         <mat-form-field>
-          <input matInput class="input" [(ngModel)]="userData.Email" placeholder="Email" type="email" name="Email" />
+          <input matInput [(ngModel)]="userData.Email" placeholder="Email" type="email" name="Email" >
         </mat-form-field>
         <mat-form-field>
-          <input matInput class="input" [(ngModel)]="userData.Birthday" placeholder="Birthday" type="date"
-            name="Birthday" />
-        </mat-form-field>
+          <input matInput [(ngModel)]="userData.Birthday" placeholder="Birthday" type="date" name="Birthday">
+        </mat-form-field><!--  -->
       </form>
     </mat-card-content>
     <mat-card-actions>
@@ -32,16 +30,16 @@
     </mat-card-actions>
   </mat-card>
   <h1>Your Favorite Movies</h1>
-  <div *ngIf="this.getFavotiteMovies.length === 0">
+  <div *ngIf="this.getFavoriteMovies.length === 0">
     <h3>You haven't add any movie to your favorites yet!</h3>
   </div>
   <div>
-    <mat-card *ngFor="let movie of favotiteMovies; let i = index">
-      <mat-icon (click)="deleteFavoriteMovie(movie._id, movie.Title)">
-        remove
-      </mat-icon>
+    <mat-card *ngFor="let movie of favoriteMovies; let i = index">
       <mat-card-header>
         <mat-card-title>{{ movie.Title }}</mat-card-title>
+        <mat-icon (click)="deleteFavoriteMovie(movie._id, movie.Title)">
+          remove
+        </mat-icon>
         <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
       </mat-card-header>
       <img src="{{ movie.ImagePath }}" alt="{{ movie.Title }}" />

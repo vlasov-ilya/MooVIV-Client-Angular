@@ -21,11 +21,10 @@ import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.compone
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
-
+  @Input() userData = { Username: '', Password: '', Email: '', Birthday: ''};
   movies: any[] = [];
-  favotiteMovies: any[] = [];
-  favotiteMoviesIDs: any[] = [];
+  favoriteMovies: any[] = [];
+  favoriteMoviesIDs: any[] = [];
 
   constructor(
     public fetchApiData: UpdateUsersInfo,
@@ -40,17 +39,17 @@ export class UserProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getFavotiteMovies();
+    this.getFavoriteMovies();
   }
 
-  getFavotiteMovies(): void {
+  getFavoriteMovies(): void {
     const user = localStorage.getItem('user');
     console.log(user);
 
-    this.fetchApiDataUser.getUser().subscribe((resp: any) => {
-      this.favotiteMoviesIDs = resp.FavotiteMovies;
-      console.log(this.favotiteMoviesIDs);
-      return this.favotiteMoviesIDs;
+    this.fetchApiDataUser.getUser(user).subscribe((resp: any) => {
+      this.favoriteMoviesIDs = resp.FavoriteMovies;
+      console.log(this.favoriteMoviesIDs);
+      return this.favoriteMoviesIDs;
     });
     setTimeout(() => {
       this.getMovies();
@@ -62,11 +61,11 @@ export class UserProfileComponent implements OnInit {
       this.movies = resp;
       console.log(this.movies);
       this.movies.forEach((movie) => {
-        // if (this.favotiteMoviesIDs.includes(movie._id))
-        //   this.favotiteMovies.push(movie);
+        if (this.favoriteMoviesIDs.includes(movie._id))
+        this.favoriteMovies.push(movie);
       });
-      console.log(this.favotiteMovies);
-      return this.favotiteMovies;
+      console.log(this.favoriteMovies);
+      return this.favoriteMovies;
     });
   }
 

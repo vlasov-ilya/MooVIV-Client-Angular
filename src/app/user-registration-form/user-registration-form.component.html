@@ -6,9 +6,11 @@
     <form>
 
       <mat-form-field>
+        <mat-hint>Must be at least 5 characters</mat-hint>
         <input matInput [(ngModel)]="userData.Username" placeholder="Username" type="text" name="Username" required>
       </mat-form-field>
       <mat-form-field>
+        <mat-hint>Must be at least 5 characters</mat-hint>
         <input matInput [(ngModel)]="userData.Password" placeholder="Password" type="password" name="Password" required>
       </mat-form-field>
       <mat-form-field>
