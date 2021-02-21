@@ -76,10 +76,8 @@ export class GetAllMovies {
             Authorization: 'Bearer ' + token,
           }
         ),
-      }).pipe(
-        map(this.extractResponseData),
-        catchError(this.handleError)
-      );
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   // Non-typed response extraction
 
@@ -117,9 +115,8 @@ export class GetOneMovie {
             Authorization: 'Bearer ' + token,
           }
         ),
-      }).pipe(
-        map(this.extractResponseData),
-        catchError(this.handleError)
+      }).pipe(map(this.extractResponseData)
+        , catchError(this.handleError)
       );
   }
   private extractResponseData(res: Object): any {
@@ -223,10 +220,10 @@ export class GetGenre {
 export class GetUser {
   constructor(private http: HttpClient) { }
   // API to get user by Name
-  getUser(): Observable<any> {
+  getUser(username: any): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + 'users/:username', {
+      .get(apiUrl + `users/${username}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -257,10 +254,10 @@ export class GetUser {
 export class UpdateUsersInfo {
   constructor(private http: HttpClient) { }
   // API update users info
-  updateUsersInfo(userDetails: any): Observable<any> {
+  editUser(userData: any): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.put(apiUrl + `users/${username}`, userDetails, {
+    return this.http.put(apiUrl + `users/${username}`, userData, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -336,7 +333,7 @@ export class AddMovie {
   addMovie(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.post(apiUrl + `users/${username}/Movies/${id}`, id, {
+    return this.http.post(`${apiUrl}users/${username}/Movies/${id}`, id, {
       headers: new HttpHeaders(
         {
           Authorization: `Bearer ${token}`,
@@ -375,7 +372,7 @@ export class GetFavoriteMovies {
   getFavoriteMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.get(apiUrl + `users/${username}/movies`, {
+    return this.http.get(apiUrl + `users/${username}/Movies`, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,

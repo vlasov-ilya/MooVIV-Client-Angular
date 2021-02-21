@@ -21,10 +21,10 @@ import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.compone
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  @Input() userData = { Username: '', Password: '', Email: '', Birthday: ''};
+  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
   movies: any[] = [];
   favoriteMovies: any[] = [];
-  favoriteMoviesIDs: any[] = [];
+  favoriteMovieIDs: any[] = [];
 
   constructor(
     public fetchApiData: UpdateUsersInfo,
@@ -43,13 +43,13 @@ export class UserProfileComponent implements OnInit {
   }
 
   getFavoriteMovies(): void {
-    const user = localStorage.getItem('user');
-    console.log(user);
+    const username = localStorage.getItem('user');
+    console.log(username);
 
-    this.fetchApiDataUser.getUser().subscribe((resp: any) => {
-      this.favoriteMoviesIDs = resp.FavoriteMovies;
-      console.log(this.favoriteMoviesIDs);
-      return this.favoriteMoviesIDs;
+    this.fetchApiDataUser.getUser(username).subscribe((resp: any) => {
+      this.favoriteMovieIDs = resp.FavoriteMovies;
+      console.log(this.favoriteMovieIDs);
+      return this.favoriteMovieIDs;
     });
     setTimeout(() => {
       this.getMovies();
@@ -61,8 +61,8 @@ export class UserProfileComponent implements OnInit {
       this.movies = resp;
       console.log(this.movies);
       this.movies.forEach((movie) => {
-        if (this.favoriteMoviesIDs.includes(movie._id))
-        this.favoriteMovies.push(movie);
+        if (this.favoriteMovieIDs.includes(movie._id))
+          this.favoriteMovies.push(movie);
       });
       console.log(this.favoriteMovies);
       return this.favoriteMovies;
@@ -76,8 +76,8 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  updateUsersInfo(): void {
-    this.fetchApiData.updateUsersInfo(this.userData).subscribe((result) => {
+  editUserData(): void {
+    this.fetchApiData.editUser(this.userData).subscribe((result) => {
       console.log(result);
       this.snackBar.open('You profile was updated', 'OK', {
         duration: 3000,
@@ -92,25 +92,25 @@ export class UserProfileComponent implements OnInit {
       });
   }
 
-  openSynopsisDialog(description: string, image: string): void {
+  openSynopsisDialog(Description: string, Image: string): void {
     this.dialog.open(MovieSynopsisComponent, {
-      data: { description, image },
+      data: { Description, Image },
       width: '550px',
       height: '600px',
     });
   }
 
-  openGenreDialog(name: string, description: string): void {
+  openGenreDialog(Name: string, Description: string): void {
     this.dialog.open(MovieGenreComponent, {
-      data: { name, description },
+      data: { Name, Description },
       width: '550px',
       height: '600px'
     });
   }
 
-  openDirectorDialog(name: string, bio: string, birth: string, death: string): void {
+  openDirectorDialog(Name: string, Bio: string, Birth: string, Death: string): void {
     this.dialog.open(MovieDirectorComponent, {
-      data: { name, bio, birth, death },
+      data: { Name, Bio, Birth, Death },
       width: '550px',
       height: '600px'
     });
