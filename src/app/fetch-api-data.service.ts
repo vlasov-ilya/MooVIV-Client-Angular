@@ -410,7 +410,7 @@ export class GetFavoriteMovies {
 export class DeleteMovie {
   constructor(private http: HttpClient) { }
   // API to DELETE a movie from favorites
-  deleteMovie(id: string): Observable<any> {
+  deleteFavoriteMovie(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
     return this.http.delete(apiUrl + `users/:username/Favorites/${id}`, {

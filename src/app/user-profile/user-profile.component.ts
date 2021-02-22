@@ -64,17 +64,17 @@ export class UserProfileComponent implements OnInit {
       this.movies = resp;
 
       console.log(this.movies);
-      // this.movies.forEach((movie) => {
-      //   if (this.favoriteMovieIDs.includes(movie._id))
-      //     this.favoriteMovies.push(movie);
-      // });
+      this.movies.forEach((movie) => {
+        if (this.favoriteMovieIDs.includes(movie._id))
+          this.favoriteMovies.push(movie);
+      });
       console.log(this.favoriteMovies);
       return this.favoriteMovies;
     });
   }
 
   deleteFavoriteMovie(id: string, title: string): void {
-    this.fetchApiDataDeleteMovie.deleteMovie(id).subscribe((resp: any) => {
+    this.fetchApiDataDeleteMovie.deleteFavoriteMovie(id).subscribe((resp: any) => {
       console.log(resp);
       window.location.reload();
     });
