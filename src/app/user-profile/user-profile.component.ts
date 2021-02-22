@@ -45,14 +45,14 @@ export class UserProfileComponent implements OnInit {
   getFavoriteMovies(): void {
     const user = localStorage.getItem('user');
     console.log(user);
-
-    this.fetchApiDataUser.getUser().subscribe((resp: any) => {
-      this.favoriteMovieIDs = resp.FavoriteMovies;
-      // console.log(resp);
-      console.log(this.favoriteMovieIDs);
-
-      return this.favoriteMovieIDs;
-    });
+    if (user) {
+      this.fetchApiDataUser.getUser(user).subscribe((resp: any) => {
+        this.favoriteMovieIDs = resp.FavoriteMovies;
+        console.log(resp);
+        console.log(this.favoriteMovieIDs);
+        return this.favoriteMovieIDs;
+      });
+    }
     setTimeout(() => {
       this.getMovies();
     }, 100);
@@ -60,12 +60,14 @@ export class UserProfileComponent implements OnInit {
 
   getMovies(): void {
     this.fetchApiDataAllMovies.getAllMovies().subscribe((resp: any) => {
+      // console.log(resp);
       this.movies = resp;
+
       console.log(this.movies);
-      this.movies.forEach((movie) => {
-        if (this.favoriteMovieIDs.includes(movie._id))
-          this.favoriteMovies.push(movie)
-      });
+      // this.movies.forEach((movie) => {
+      //   if (this.favoriteMovieIDs.includes(movie._id))
+      //     this.favoriteMovies.push(movie);
+      // });
       console.log(this.favoriteMovies);
       return this.favoriteMovies;
     });

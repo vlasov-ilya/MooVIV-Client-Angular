@@ -42,9 +42,9 @@
     </mat-card-actions>
   </mat-card>
   <h1>Your Favorite Movies</h1>
-  <div *ngIf="this.getFavoriteMovies.length === 0">
+  <!-- <div *ngIf="this.getFavoriteMovies.length === 0">
     <h3>You haven't add any movie to your favorites yet!</h3>
-  </div>
+  </div> -->
   <div>
     <mat-card *ngFor="let movie of favoriteMovies; let i = index">
       <mat-icon (click)="deleteFavoriteMovie(movie._id, movie.Title)">
