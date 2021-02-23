@@ -21,7 +21,7 @@ import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.compone
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
+  @Input() userData = { Username: ' ', Password: ' ', Email: ' ', Birthday: ' ' };
   movies: any[] = [];
   favoriteMovies: any[] = [];
   favoriteMovieIDs: any[] = [];
@@ -81,11 +81,11 @@ export class UserProfileComponent implements OnInit {
   }
 
   editUserData(): void {
-    this.fetchApiData.editUser(this.userData).subscribe((result) => {
+    this.fetchApiData.editUserData(this.userData).subscribe((result) => {
+      // successful user registration
       console.log(result);
-      this.snackBar.open('You profile was updated', 'OK', {
-        duration: 3000,
-        verticalPosition: 'top'
+      this.snackBar.open('You profile was updated!', 'OK', {
+        duration: 2000
       });
     },
       (result) => {
@@ -120,4 +120,19 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  // deleteUser():void {
+  //   this.fetchApiData.deleteUser(this.userData).subscribe((result) => {
+  //     // successful user registration
+  //     console.log(result);
+  //     this.snackBar.open('You profile was updated!', 'OK', {
+  //       duration: 2000
+  //     });
+  //   },
+  //     (result) => {
+  //       console.log(result);
+  //       this.snackBar.open(result, 'OK', {
+  //         duration: 5000
+  //       });
+  //     });
+  // }
 }

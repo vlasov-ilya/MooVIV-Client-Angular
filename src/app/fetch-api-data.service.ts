@@ -254,7 +254,7 @@ export class GetUser {
 export class UpdateUsersInfo {
   constructor(private http: HttpClient) { }
   // API update users info
-  editUser(userData: any): Observable<any> {
+  editUserData(userData: any): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
     return this.http.put(apiUrl + `users/${username}`, userData, {
