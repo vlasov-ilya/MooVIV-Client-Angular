@@ -413,7 +413,7 @@ export class DeleteMovie {
   deleteFavoriteMovie(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.delete(apiUrl + `users/:username/Favorites/${id}`, {
+    return this.http.delete(apiUrl + `users/${username}/Favorites/${id}`, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
