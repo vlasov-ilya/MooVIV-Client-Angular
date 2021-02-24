@@ -1,0 +1,55 @@
+.nav {
+  margin-bottom: 70px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  background-color: rgba(255, 171, 64, 0.5);
+  height: 70px;
+  width: 100vw;
+}
+
+.title h1 {
+  margin-top: 10px;
+  margin-left: 25px;
+  color: black;
+  text-shadow: 3px 1px 5px white;
+  font-size: 40px;
+}
+
+.title h1:hover {
+  cursor: pointer;
+  text-shadow: 5px 3px 7px black;
+}
+
+.buttons button {
+  color: black;
+  background-color: rgba(205,220,57,0.75);
+  border-radius: 35%;
+
+  border: black;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 2px 1px 1.5px white;
+  height: 35px;
+  line-height: 20px;
+}
+
+.buttons button:first-child {
+  margin-right: 10px;
+}
+
+.buttons {
+  margin-right: 40px;
+}
+
+.buttons button:hover {
+  cursor: pointer;
+  color: black;
+  background-color: #FFAB40;
+}

@@ -1,21 +1,21 @@
 <app-navbar></app-navbar>
 <div class="profile_page">
-  <mat-card class="update_container">
-    <mat-card-header class="update_header">
-      <mat-card-title class="update_title">Update Profile</mat-card-title>
+  <mat-card class="container">
+    <mat-card-header class="header">
+      <mat-card-title class="title">Update Profile</mat-card-title>
     </mat-card-header>
-    <mat-card-content class="update_card_content">
+    <mat-card-content class="card_content">
       <form>
         <mat-form-field>
           <mat-hint>Must be at least 5 characters</mat-hint>
-          <input matInput [(ngModel)]="userData.Username" placeholder="Username" type="text" name="Username" required>
+          <input matInput [(ngModel)]="userData.Username" placeholder="Username" type="text" name="Username" title ="Password" required>
         </mat-form-field>
         <mat-form-field>
           <mat-hint>Must be at least 5 characters</mat-hint>
-          <input matInput [(ngModel)]="userData.Password" placeholder="Password" type="password" name="Password" required>
+          <input matInput [(ngModel)]="userData.Password" placeholder="Password" type="password" name="Password" title="Password" required>
         </mat-form-field>
         <mat-form-field>
-          <input matInput [(ngModel)]="userData.Email" placeholder="Email" type="email" name="Email" required>
+          <input matInput [(ngModel)]="userData.Email" placeholder="Email" type="email" name="Email">
         </mat-form-field>
         <mat-form-field>
           <input matInput [(ngModel)]="userData.Birthday" placeholder="Birthday" type="date" name="Birthday">
@@ -23,24 +23,24 @@
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="editUserData()" class="update_button">
+      <button mat-raised-button (click)="editUserData()" class="update_button" color="primary">
         Submit
       </button>
     </mat-card-actions>
   </mat-card>
   <!-- <div class="favorite_movies_title"> -->
-  <h1 class="favorite_movies_title">Your Favorite Movies</h1>
+  <h1 class="title">Your Favorite Movies</h1>
   <!-- </div> -->
   <div class="no_favorites" *ngIf="this.favoriteMovies.length === 0">
-    <h3>You haven't chosen any favorite movies yet!</h3>
+    <h2>You haven't chosen any favorite movies yet!</h2>
   </div>
   <div class="movie_container">
     <mat-card *ngFor="let movie of favoriteMovies; let i = index" class="card"
       >
-      <mat-card-header class="card_header">
+      <mat-card-header class="header">
         <mat-card-title class="card_title">{{ movie.Title }}</mat-card-title>
         <mat-icon (click)="deleteFavoriteMovie(movie._id, movie.Title)"
-        >clear</mat-icon>
+        >delete</mat-icon>
         <mat-card-subtitle class="card_subtitle"
           ><span
             >Directed by: {{ movie.Director.Name }}</span

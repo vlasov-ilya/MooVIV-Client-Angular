@@ -1,0 +1,150 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 50%;
+  margin: 85px auto 5px !important;
+  border: 1px solid !important;
+  padding-top: 25px;
+  box-shadow: 1px 1px 4px rgb(255,213,159);
+  background-color: rgba(205,220,57,0.5);
+}
+
+mat-form-field {
+  margin: 1.3rem;
+}
+
+.header {
+  display: flex;
+ justify-content: center !important;
+}
+
+.title {
+  color: black;
+  text-shadow: 3px 1px 5px white;
+  margin-bottom: 25px !important;
+  margin-top: -10px !important;
+  font-size: 25px;
+}
+
+.button {
+  font-size: 14px;
+  padding: 0px 0px !important;
+  width: 18px;
+  height: 25px;
+  line-height: 14px;
+  margin-bottom: 5px !important;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #F44336;
+  background-color: #8BC34A;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: -8px;
+  height: 50px;
+  text-shadow: 1.5px 1px 2px rgba(255, 171, 64, 0.5);
+  color: black;
+  margin-top: 15px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.no_favorites {
+  text-align: center;
+  margin-top: 2rem;
+  }
+
+.movie_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 450px));
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  background-color: rgb(255,213,159);
+  text-align: center;
+  width: 275px;
+  height: 470px;
+  margin: 1.5rem auto;
+  box-shadow: 2px 2px 3.5px black;
+}
+
+.header {
+  position: relative;
+  top: 3px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0px;
+}
+
+ mat-icon {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: black;
+  text-shadow: 3px 1px 5px white;
+  font-size: 18px;
+  
+}
+
+mat-icon:hover {
+  cursor: pointer;
+}
+
+.card_title {
+  position: relative;
+  font-size: 18px;
+  margin-top: -5px !important;
+  margin-bottom: 3px !important;
+  padding: 5px;
+  color: black;
+  text-shadow: 3px 1px 5px white;
+  width: 90%;
+}
+
+.card_subtitle {
+  color: black;
+  text-shadow: 2px 1px 2px white;
+  font-size: 12px;
+}
+
+.card_image {
+  width: 180px;
+  height: 260px;
+  margin: auto;
+  box-shadow: 2px 4px 5px black;
+}
+
+.buttons {
+  display: flex;
+  text-align: center;
+  margin: 1rem;
+}
+
+.buttons button {
+  margin-right: 1.75rem ;
+  padding: 0px 0px !important;
+  height: 35px;
+  color: black;
+  background-color: rgba(205,220,57,0.75);
+  border-radius: 30%;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 2px 1px 1.5px white;
+}
+
+.buttons button:hover {
+  cursor: pointer;
+  background-color: #FFAB40;
+}

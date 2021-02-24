@@ -96,6 +96,7 @@ export class UserProfileComponent implements OnInit {
       });
   }
 
+
   openSynopsisDialog(Description: string, Image: string): void {
     this.dialog.open(MovieSynopsisComponent, {
       data: { Description, Image },
