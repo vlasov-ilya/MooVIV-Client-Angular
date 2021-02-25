@@ -1,4 +1,4 @@
-.card > h1 {
+h1 {
   color: black;
   text-shadow: 3px 1px 5px white;
   text-align: center;
@@ -9,22 +9,17 @@
   display: flex;
 }
 
-.image {
-  margin-right: auto !important;
-}
-
-.image > img {
-  width: 250px;
-  //   box-shadow: 3px 1px 10px black;
+img {
+  width: 250px; 
+  height: 350px;
+  box-shadow: 2px 1px 3px black;
   border: 3px solid black;
+  margin-left: 115px !important;
 }
 
-.about {
-  margin-left: 5px;
-}
-
-.about p {
-  font-weight: 500;
+p {
   font-size: 18px;
   line-height: 25px;
+  margin-top: 25px;
+  text-align: center;
 }

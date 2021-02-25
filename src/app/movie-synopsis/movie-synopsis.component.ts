@@ -11,9 +11,10 @@ export class MovieSynopsisComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
+      Title: string;
       Description: string;
       Image: string;
-      Title: string;
+
     }
   ) { }
 }

@@ -1,16 +1,16 @@
 <app-navbar></app-navbar>
 <div class="container">
   <mat-card *ngFor="let movie of movies; let i = index;" class="card">
-    <mat-card-header>
-      <mat-card-title>{{movie.Title}}</mat-card-title>
+    <mat-card-header class="header">
+      <mat-card-title class="title">{{movie.Title}}</mat-card-title>
       <mat-icon (click)="addMovie(movie._id, movie.Title)">favorite_border</mat-icon>
-      <mat-card-subtitle>
-        <h6>Directed by: {{movie.Director.Name}}</h6>
+      <mat-card-subtitle class="subtitle">
+        <h4>Directed by: {{movie.Director.Name}}</h4>
       </mat-card-subtitle>
     </mat-card-header>
-    <img style="width: 250px; height: 350px;" src={{movie.ImagePath}} alt={{movie.Title}} />
-    <div>
-      <button mat-raised-button (click)="openSynopsisDialog(movie.Description, movie.ImagePath)"
+    <img class="image"  src={{movie.ImagePath}} alt={{movie.Title}} />
+    <div class="buttons">
+      <button mat-raised-button (click)="openSynopsisDialog(movie.Description, movie.ImagePath, movie.Title)"
         color="primary">Synopsis</button>
       <button mat-button
         (click)="openDirectorDialog(movie.Director.Name, movie.Director.Bio, movie.Director.Birth, movie.Director.Death)"

@@ -90,8 +90,8 @@ mat-form-field {
 
  mat-icon {
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 1px;
+  right: 2px;
   color: black;
   text-shadow: 3px 1px 5px white;
   font-size: 18px;
@@ -104,13 +104,13 @@ mat-icon:hover {
 
 .card_title {
   position: relative;
-  font-size: 18px;
+  font-size: 19px;
   margin-top: -5px !important;
   margin-bottom: 3px !important;
   padding: 5px;
   color: black;
   text-shadow: 3px 1px 5px white;
-  width: 90%;
+  width: 100%;
 }
 
 .card_subtitle {
@@ -130,6 +130,8 @@ mat-icon:hover {
   display: flex;
   text-align: center;
   margin: 1rem;
+  position: absolute;
+  bottom: 30px;
 }
 
 .buttons button {
