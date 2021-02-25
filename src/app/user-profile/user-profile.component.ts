@@ -21,7 +21,7 @@ import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.compone
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  @Input() userData = { Username: ' ', Password: ' ', Email: ' ', Birthday: ' ' };
+  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
   movies: any[] = [];
   favoriteMovies: any[] = [];
   favoriteMovieIDs: any[] = [];
