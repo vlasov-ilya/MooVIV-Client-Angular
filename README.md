@@ -1,5 +1,9 @@
 # MooVIVClientAngular
 
+>Using Angular, build the client-side for an application called myFlix based on its existing server-side code (REST API and database), with supporting documentation.
+
+It is a small movie app that includes authentication, profiles where you can change details and unregister, add favourite movie, and delete a favourite movie on your profile list.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
 
 ## Development server
