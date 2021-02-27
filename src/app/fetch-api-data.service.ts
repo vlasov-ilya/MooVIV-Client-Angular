@@ -6,7 +6,16 @@ import { map } from 'rxjs/operators';
 
 
 // Declaring the API URL for data
+
+/**
+ * @param apiUrl url to backend of App
+ */
 const apiUrl = 'https://mooviv.herokuapp.com/';
+
+/**
+ * function to register user
+ * and make api call
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +44,10 @@ export class UserRegistrationService {
   }
 }
 
+/**
+ * Makin the API call for LogIn
+ * @param userDetails Login/Password
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -61,6 +74,10 @@ export class UserLoginService {
   }
 
 }
+
+/**
+ * Making API to get All Movies
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -99,6 +116,9 @@ export class GetAllMovies {
   }
 }
 
+/**
+ * Making API to get one Movie
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -136,7 +156,9 @@ export class GetOneMovie {
       'Something happened; please try again later.');
   }
 }
-
+/**
+ * Making API to get director by name
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -175,6 +197,9 @@ export class GetDirector {
   }
 }
 
+/**
+ * Making API to get genre by name/title
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -213,7 +238,9 @@ export class GetGenre {
   }
 
 }
-
+/**
+ * Making API to get user by username
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -248,6 +275,10 @@ export class GetUser {
       'Something happened; please try again later.');
   }
 }
+
+/**
+ * Making API to update user's info
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -286,6 +317,10 @@ export class UpdateUsersInfo {
       'Something happened; please try again later.');
   }
 }
+
+/**
+ * Making API to delete user
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -323,6 +358,10 @@ export class DeleteUser {
       'Something happened; please try again later.');
   }
 }
+
+/**
+ * Making API to add movie to favorite list
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -363,6 +402,10 @@ export class AddMovie {
   }
 }
 
+/**
+ * Making API to get All Movies
+ * from favorite list of the user
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -404,6 +447,10 @@ export class GetFavoriteMovies {
   }
 }
 
+/**
+ * Making API to deletr Movie
+ * from the list of favorites
+ */
 @Injectable({
   providedIn: 'root'
 })

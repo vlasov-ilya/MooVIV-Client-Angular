@@ -9,7 +9,10 @@ export class NavbarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
+/**
+ *
+ * @returns NavBar logout function
+ */
   logoutUser(): void {
     localStorage.clear();
   }

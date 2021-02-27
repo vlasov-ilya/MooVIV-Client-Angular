@@ -14,6 +14,7 @@ import { MovieSynopsisComponent } from '../movie-synopsis/movie-synopsis.compone
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
+
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
 
@@ -28,6 +29,10 @@ export class MovieCardComponent implements OnInit {
     this.getMovies();
   }
 
+  /**
+   * get all movie function
+   * @returns list of all movies from Data Base
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -36,6 +41,11 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   *
+   * @param id the ID of movie to add
+   * @param Title the Title of movie
+   */
   addMovie(id: string, Title: string): void {
     this.fetchApiData2.addMovie(id).subscribe((resp: any) => {
       console.log(resp);
@@ -50,6 +60,12 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   *
+   * @param Description sescription of movie
+   * @param Image Image of the movie
+   * @param Title Title of the movie
+   */
   openSynopsisDialog(Description: string, Image: string, Title: string): void {
     this.dialog.open(MovieSynopsisComponent, {
       data: { Title, Description, Image },
@@ -58,6 +74,11 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   *
+   * @param Name Name/Title of Genre
+   * @param Description Description of genre
+   */
   openGenreDialog(Name: string, Description: string): void {
     this.dialog.open(MovieGenreComponent, {
       data: { Name, Description },
@@ -66,6 +87,13 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   *
+   * @param Name Directors Name
+   * @param Bio Directore Bio
+   * @param Birth Directors birthday
+   * @param Death Directorth Death day if apply
+   */
   openDirectorDialog(Name: string, Bio: string, Birth: string, Death: string): void {
     this.dialog.open(MovieDirectorComponent, {
       data: { Name, Bio, Birth, Death },

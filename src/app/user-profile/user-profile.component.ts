@@ -42,6 +42,9 @@ export class UserProfileComponent implements OnInit {
     this.getFavoriteMovies();
   }
 
+  /**
+   * Functoin to get list of Favorite movies
+   */
   getFavoriteMovies(): void {
     const user = localStorage.getItem('user');
     console.log(user);
@@ -58,6 +61,9 @@ export class UserProfileComponent implements OnInit {
     }, 100);
   }
 
+  /**
+   * Functoin to get list of movies
+   */
   getMovies(): void {
     this.fetchApiDataAllMovies.getAllMovies().subscribe((resp: any) => {
       // console.log(resp);
@@ -73,6 +79,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Function to delete movie from favorites
+   * @param id movie's ID
+   * @param title movie's Title
+   */
   deleteFavoriteMovie(id: string, title: string): void {
     this.fetchApiDataDeleteMovie.deleteFavoriteMovie(id).subscribe((resp: any) => {
       console.log(resp);
@@ -80,6 +91,10 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * Function to Eddit users info
+   * @param this.Userdata data requested from database
+   */
   editUserData(): void {
     this.fetchApiData.editUserData(this.userData).subscribe((result) => {
       // successful user registration
@@ -96,7 +111,12 @@ export class UserProfileComponent implements OnInit {
       });
   }
 
-
+/**
+ * Function to open movies Dialog
+ * @param Description Movie's description
+ * @param Image Image of the movie
+ * @param Title Movie's title
+ */
   openSynopsisDialog(Description: string, Image: string, Title: string): void {
     this.dialog.open(MovieSynopsisComponent, {
       data: { Description, Image, Title },
@@ -105,6 +125,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * function to open genre dialog
+   * @param Name Gener Name/Title
+   * @param Description Gener deescription
+   */
   openGenreDialog(Name: string, Description: string): void {
     this.dialog.open(MovieGenreComponent, {
       data: { Name, Description },
@@ -113,6 +138,13 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+    /**
+     * function to open Deirectors dialog
+     * @param Name Directot's Name
+     * @param Bio Director's Bio
+     * @param Birth Director'd Birthday
+     * @param Death Director's death if apply
+     */
   openDirectorDialog(Name: string, Bio: string, Birth: string, Death: string): void {
     this.dialog.open(MovieDirectorComponent, {
       data: { Name, Bio, Birth, Death },

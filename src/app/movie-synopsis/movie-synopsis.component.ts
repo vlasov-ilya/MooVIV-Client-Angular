@@ -8,6 +8,13 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class MovieSynopsisComponent {
 
+  /**
+   *
+   * @param data Data which requested from DatBase
+   * @param Title Movies title
+   * @param Description Movies Desvription
+   * @param Image Movies Image
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
